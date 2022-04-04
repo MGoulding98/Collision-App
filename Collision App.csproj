@@ -5,4 +5,12 @@
     <RootNamespace>Collision_App</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
+  </ItemGroup>
+
 </Project>

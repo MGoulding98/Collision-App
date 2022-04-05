@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Collision_App.Models;
+using ProjectDriveSafe.Models;
 
-namespace Collision_App
+namespace ProjectDriveSafe
 {
     public class Startup
     {

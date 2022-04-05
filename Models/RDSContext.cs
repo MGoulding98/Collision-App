@@ -8,15 +8,10 @@ namespace ProjectDriveSafe.Models
 {
     public class RDSContext : DbContext
     {
-        public RDSContext()
-          : base(GetRDSConnectionString())
+        public RDSContext(DbContextOptions<RDSContext> options) : base(options)
         {
         }
 
-        public static RDSContext Create()
-        {
-            return new RDSContext();
-        }
+        public DbSet<Crash> Crashes { get; set; }
     }
-}
 }

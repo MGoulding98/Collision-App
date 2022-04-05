@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjectDriveSafe.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjectDriveSafe
 {
@@ -32,6 +33,12 @@ namespace ProjectDriveSafe
             {
                 options.UseMySql(Configuration.GetConnectionString("CrashesDBConnection"));
             });
+
+            services.AddDbContext<AppIdentityRDSContext>(options =>
+               options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityRDSContext>();
 
             services.AddScoped<ICollisionRepository, EFCollisionRepository>();
 
@@ -58,6 +65,7 @@ namespace ProjectDriveSafe
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

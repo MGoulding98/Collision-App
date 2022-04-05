@@ -1,0 +1,154 @@
+﻿@page "/admin/books/edit/{id:long}"
+@page "/admin/books/create"
+@inherits OwningComponentBase<iBookStoreRepository>
+
+<style>
+    div.validation.message {
+        color: rgb(178 0 255);
+        font-weight: 500
+    }
+</style>
+
+<h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText a Collision</h3>
+
+<EditForm Model="c" OnValidSubmit="SaveCollision">
+
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+
+    <div class="form-group">
+        <label>Collsion Id</label>
+        <input class="form-control" disabled value="@c.CRASH_ID" />
+    </div>
+    <div class="form-group">
+        <label>Date and Time:</label>
+        <ValidationMessage For="@(() => c.CRASH_DATETIME)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="c.CRASH_DATETIME"></InputText>
+    </div>
+    <div class="form-group">
+        <label>Route:</label>
+        <ValidationMessage For="@(() => c.ROUTE)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.ROUTE"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Milepoint:</label>
+        <ValidationMessage For="@(() => c.MILEPOINT)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.MILEPOINT"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Latitude:</label>
+        <ValidationMessage For="@(() => c.LAT_UTM_Y)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.LAT_UTM_Y"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Longitude:</label>
+        <ValidationMessage For="@(() => c.LONG_UTM_X)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.LONG_UTM_X"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Main Road Name:</label>
+        <ValidationMessage For="@(() => c.MAIN_ROAD_NAME)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="c.MAIN_ROAD_NAME"></InputText>
+    </div>
+    <div class="form-group">
+        <label>City:</label>
+        <ValidationMessage For="@(() => c.CITY)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="c.CITY"></InputText>
+    </div>
+    <div class="form-group">
+        <label>County:</label>
+        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="c.COUNTY_NAME"></InputText>
+    </div>
+    <div class="form-group">
+        <label>Crash Severity Id:</label>
+        <ValidationMessage For="@(() => c.CRASH_SEVERITY_ID)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.CRASH_SEVERITY_ID"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Work Zone Related:</label>
+        <ValidationMessage For="@(() => c.WORK_ZONE_RELATED)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.WORK_ZONE_RELATED"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Pedestrian Involved:</label>
+        <ValidationMessage For="@(() => c.PEDESTRIAN_INVOLVED)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.PEDESTRIAN_INVOLVED"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Bicyclist Involved:</label>
+        <ValidationMessage For="@(() => c.BICYCLIST_INVOLVED)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.BICYCLIST_INVOLVED"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Motorcycle Involved:</label>
+        <ValidationMessage For="@(() => c.MOTORCYCLE_INVOLVED)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.MOTORCYCLE_INVOLVED"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Improper Restraint:</label>
+        <ValidationMessage For="@(() => c.IMPROPER_RESTRAINT)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.IMPROPER_RESTRAINT"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>Unrestrained:</label>
+        <ValidationMessage For="@(() => c.UNRESTRAINED)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.UNRESTRAINED"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>County:</label>
+        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>County:</label>
+        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>County:</label>
+        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
+    </div>
+    <button type="submit" class="btn btn-@ThemeColor">Save</button>
+    <NavLink class="btn btn-secondary" href="/admin/books/">Cancel</NavLink>
+
+
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
+    public string TitleText => Id == 0 ? "Create" : "Edit";
+
+    public Crash c { get; set; } = new Crash();
+    public ICollisionRepository repo => Service;
+    protected override void OnParametersSet()
+    {
+        if (Id != 0) //Existing Book
+        {
+            c = repo.Crashes.FirstOrDefault(x => x.CRASH_ID == Id);
+        }
+    }
+
+    public void SaveCollision()
+    {
+        if (Id == 0) //New Book
+        {
+            repo.CreateCollision(c);
+        }
+        else
+        {
+            repo.SaveCollision(c);
+        }
+
+        NavManager.NavigateTo("/admin/collision");
+    }
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+
+}

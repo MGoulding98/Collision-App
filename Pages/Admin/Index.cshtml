@@ -2,6 +2,9 @@
 
 @model ProjectDriveSafe.Pages.Admin.IndexModel
 
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
 @{
 }
 
@@ -15,7 +18,7 @@
 
 <body>
 
-    <component type="typeof(ProjectDriveSafe.Pages.Admin.Routed)" render-mode="Server" />
+    <component type="typeof(ProjectDriveSafe.Pages.Admin.Routed)" render-mode="ServerPrerendered" />
     <script src="/_framework/blazor.server.js"></script>
 </body>
 </html>

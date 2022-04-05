@@ -22,5 +22,14 @@ namespace Collision_App.Controllers
             return View();
         }
 
+        public IActionResult ViewCrashes(int pageNum = 1)
+        {
+            int pageSize = 5;
+
+            var blah = 
+            
+            return View();
+        }
+
     }
 }

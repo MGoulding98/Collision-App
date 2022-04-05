@@ -22,7 +22,6 @@ namespace ProjectDriveSafe.Models
 
         // set up foreign key relationship
         public int CRASH_SEVERITY_ID { get; set; }
-        public Severity Severity { get; set; }
 
         public bool WORK_ZONE_RELATED { get; set; }
         public bool PEDESTRIAN_INVOLVED { get; set; }

@@ -26,12 +26,12 @@ namespace ProjectDriveSafe.Controllers
 
         public IActionResult ViewCrashes(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 500;
 
             var x = new CrashesViewModel
             {
                 Crashes = repo.Crashes
-                .OrderBy(c => c.MAIN_ROAD_NAME)
+                .OrderBy(c => c.CRASH_ID)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 

@@ -80,6 +80,8 @@ namespace ProjectDriveSafe
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
             });
+
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

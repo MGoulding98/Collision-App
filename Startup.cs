@@ -30,7 +30,7 @@ namespace ProjectDriveSafe
 
             services.AddDbContext<RDSContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:RDSConnection"]);
+                options.UseMySql(Configuration["ConnectionStrings:CrashesDBConnection"]);
             });
 
             services.AddScoped<ICollisionRepository, EFCollisionRepository>();

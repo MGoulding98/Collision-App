@@ -12,7 +12,7 @@ namespace ProjectDriveSafe.Controllers
 {
     public class HomeController : Controller
     {
-        private ICollisionRepository repo;
+        private ICollisionRepository repo { get; set; }
 
         public HomeController(ICollisionRepository temp)
         {

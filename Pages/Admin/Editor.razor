@@ -2,8 +2,6 @@
 @page "/admin/books/create"
 @inherits OwningComponentBase<ICollisionRepository>
 
-
-
 <style>
     div.validation.message {
         color: rgb(178 0 255);
@@ -62,11 +60,16 @@
         <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
         <InputText class="form-control" @bind-Value="c.COUNTY_NAME"></InputText>
     </div>
+
     <div class="form-group">
-        <label>Crash Severity Id:</label>
-        <ValidationMessage For="@(() => c.CRASH_SEVERITY_ID)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.CRASH_SEVERITY_ID"></InputNumber>
+        <InputSelect id="severity" @bind-Value="c.CRASH_SEVERITY_ID">
+            @foreach (Severity s in ViewBag.Severities)
+            {
+                <option value="@s.CRASH_SEVERITY_ID">@s.CRASH_SEVERITY_DESCRIPTION</option>
+            }
+        </InputSelect>
     </div>
+
     <div class="form-group">
         <label>Work Zone Related:</label>
         <ValidationMessage For="@(() => c.WORK_ZONE_RELATED)"></ValidationMessage>

@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Collision_App.Models
+namespace ProjectDriveSafe.Models
 {
     public class Helpers
     {

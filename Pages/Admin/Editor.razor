@@ -63,14 +63,14 @@
         <InputText class="form-control" @bind-Value="c.COUNTY_NAME"></InputText>
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         <InputSelect id="severity" @bind-Value="c.CRASH_SEVERITY_ID">
             @foreach (var s in Severities)
             {
                 <option value="@s.CRASH_SEVERITY_ID">@s.CRASH_SEVERITY_DESCRIPTION</option>
             }
         </InputSelect>
-    </div>
+    </div>*@
 
     @*<div class="form-group">
         <label>Work Zone Related:</label>
@@ -124,6 +124,6 @@
     [Inject]
     public NavigationManager NavManager { get; set; }
 
-    public List<Severity> Severities { get; set; } = new List<Severity>();
+    @*public List<Severity> Severities { get; set; } = new List<Severity>();*@
 
 }

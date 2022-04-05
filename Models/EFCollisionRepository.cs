@@ -14,7 +14,6 @@ namespace ProjectDriveSafe.Models
         }
 
         public IQueryable<Crash> Crashes => context.Crashes;
-        public IQueryable<Severity> Severities => context.Severities;
 
         public Crash GetCrash(int crashid)
         {

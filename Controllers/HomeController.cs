@@ -14,7 +14,7 @@ namespace ProjectDriveSafe.Controllers
 
         public HomeController()
         {
-
+            
         }
 
         public IActionResult Index()

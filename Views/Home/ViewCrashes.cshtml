@@ -72,7 +72,7 @@
                 <td>
                     <div class="col">
                         @* This is probably wrong *@
-                        @foreach (var s in Severities)
+                        @foreach (Severity s in Model.Severities)
                         {
                             @s.CRASH_SEVERITY_DESCRIPTION
                         }

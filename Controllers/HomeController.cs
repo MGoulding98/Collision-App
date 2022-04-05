@@ -1,4 +1,4 @@
-﻿using Collision_App.Models;
+﻿using ProjectDriveSafe.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Collision_App.Controllers
+namespace ProjectDriveSafe.Controllers
 {
     public class HomeController : Controller
     {

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ProjectDriveSafe.Models.ViewModels;
 
 namespace ProjectDriveSafe.Controllers
 {
@@ -26,11 +27,22 @@ namespace ProjectDriveSafe.Controllers
         {
             int pageSize = 5;
 
-            var blah = cContext.Crashes
+            var x = new CrashesViewModel
+            {
+                Crashes =
+                cContext.Crashes
                 .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize);
-            
-            return View(blah);
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = cContext.Crashes.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         }
 
     }

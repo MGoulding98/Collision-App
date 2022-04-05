@@ -15,6 +15,26 @@
         @if (CrashData?.Count() > 0)
         {
             // List crashes
+            @foreach (Crash c in CrashData)
+                {
+                    <tr>
+                        <td>@c.CRASH_ID</td>
+                        <td>@c.CRASH_DATETIME</td>
+                        <td>@c.CITY</td>
+
+                        <td>
+                            <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(c.CrashID)">Details</NavLink>
+                        </td>
+
+                        <td>
+                            <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(c.CrashID)">Edit</NavLink>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btnn-sm" @onclick="@x => DeleteCollision(c)">Delete</button>
+                        </td>
+
+                    </tr>
+                }
 
         }
         else
@@ -33,7 +53,7 @@
 
     public IEnumerable<Crash> CrashData { get; set; }
 
-    protected async override Task OnInitializeAsync()
+    protected async override Task OnInitializedAsync()
     {
         await UpdateData();
     }
@@ -41,5 +61,15 @@
     public async Task UpdateData()
     {
         CrashData = await repo.Crashes.ToListAsync();
+    }
+
+
+    public string GetDetailsUrl(long id) => $"admin/collisions/details/{id}";
+    public string GetEditUrl(long id) => $"admin/collisions/edit{id}";
+
+    public async Task DeleteCollision (Crash c)
+    {
+        repo.DeleteCollision(c);
+        await UpdateData();
     }
 }

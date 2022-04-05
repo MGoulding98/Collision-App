@@ -12,10 +12,11 @@ namespace ProjectDriveSafe.Controllers
 {
     public class HomeController : Controller
     {
-        private RDSContext cContext { get; set; }
-        public HomeController(RDSContext x)
+        private ICollisionRepository repo { get; set; }
+
+        public HomeController(ICollisionRepository temp)
         {
-            cContext = x;
+            repo = temp;
         }
 
         public IActionResult Index()
@@ -30,13 +31,13 @@ namespace ProjectDriveSafe.Controllers
             var x = new CrashesViewModel
             {
                 Crashes =
-                cContext.Crashes
+                repo.Crashes
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = cContext.Crashes.Count(),
+                    TotalNumCrashes = repo.Crashes.Count(),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }

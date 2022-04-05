@@ -21,7 +21,8 @@ namespace ProjectDriveSafe.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var crash = repo.Crashes.ToList();
+            return View(crash);
         }
 
         public IActionResult ViewCrashes(int pageNum = 1)

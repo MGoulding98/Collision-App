@@ -38,24 +38,52 @@ namespace ProjectDriveSafe.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageBlah.TotalPages; i++)
+            if (PageBlah.CurrentPage > 1)
             {
-                TagBuilder tb = new TagBuilder("a");
-
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
-
-                if (PageClassesEnabled)
+                for (int i = PageBlah.CurrentPage - 1; i <= (PageBlah.CurrentPage +3) && i <= PageBlah.TotalPages; i++)
                 {
+                    var selectcurrent = i + 1;
+
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
                     tb.AddCssClass(PageClass);
-                    tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    tb.InnerHtml.Append(i.ToString());
+
+                    final.InnerHtml.AppendHtml(tb);
                 }
-                tb.AddCssClass(PageClass);
-                tb.InnerHtml.Append(i.ToString());
 
-                final.InnerHtml.AppendHtml(tb);
+                tho.Content.AppendHtml(final.InnerHtml);
             }
+            else
+            {
 
-            tho.Content.AppendHtml(final.InnerHtml);
+                for (int i = PageBlah.CurrentPage; i <= (PageBlah.CurrentPage + 3) && i < PageBlah.TotalPages; i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
+                    tb.AddCssClass(PageClass);
+                    tb.InnerHtml.Append(i.ToString());
+
+                    final.InnerHtml.AppendHtml(tb);
+                }
+
+                tho.Content.AppendHtml(final.InnerHtml);
+
+            }
         }
     }
 }

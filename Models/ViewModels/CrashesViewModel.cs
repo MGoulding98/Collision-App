@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Collision_App.Models.ViewModels
+namespace ProjectDriveSafe.Models.ViewModels
 {
     public class CrashesViewModel
     {

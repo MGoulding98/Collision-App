@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Collision_App.Pages.Admin
+namespace ProjectDriveSafe.Pages.Admin
 {
     public class IndexModel : PageModel
     {

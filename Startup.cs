@@ -32,6 +32,8 @@ namespace ProjectDriveSafe
                 options.UseMySql(Configuration["ConnectionStrings:RDSConnection"]);
             });
 
+            services.AddScoped<ICollisionRepository, EFCollisionRepository>();
+
             services.AddRazorPages();
 
             services.AddServerSideBlazor();

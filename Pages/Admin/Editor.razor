@@ -16,8 +16,7 @@
 
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
-@if (c.CRASH_ID != 0)
-{
+
     <div class="form-group">
         <label>Collsion Id</label>
         <input class="form-control" disabled value="@c.CRASH_ID" />
@@ -85,7 +84,7 @@
 
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
     <NavLink class ="btn btn-secondary" href="/admin/collisions">Cancel</NavLink>
-}
+
 
 </EditForm>
 

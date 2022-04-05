@@ -50,7 +50,7 @@
         <tbody>
             @*if statement*@
 
-            @foreach (var x in Model)
+            @foreach (var x in Model.Crashes)
             {
             <tr>
                 <td>
@@ -83,3 +83,5 @@
         </tbody>
     </table>
 </div>
+
+<div page-blah="@Model.PageInfo" page-action="ViewCrashes"></div>

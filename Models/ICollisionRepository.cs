@@ -4,7 +4,7 @@ using ProjectDriveSafe.Models;
 
 namespace ProjectDriveSafe.Models
 {
-    public class ICollisionRepository
+    public interface ICollisionRepository
     {
         IQueryable<Crash> Crashes { get; }
 

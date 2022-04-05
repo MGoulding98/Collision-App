@@ -5,13 +5,41 @@
 <table class="table table-sm table-striped table-bordered">
     <thead>
         <tr>
-            <th></th>
-            <th></th>
+            <th>Crash ID</th>
+            <th>Time and Date of Crash</th>
+            <th>City</th>
         </tr>
     </thead>
+
+    <tbody>
+        @if (CrashData?.Count() > 0)
+        {
+            // List crashes
+
+        }
+        else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No Collisions</td>
+                </tr>
+            }
+    </tbody>
 
 </table>
 
 @code {
 
+    public ICollisionRepository repo => Service;
+
+    public IEnumerable<Crash> CrashData { get; set; }
+
+    protected async override Task OnInitializeAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        CrashData = await repo.Crashes.ToListAsync();
+    }
 }

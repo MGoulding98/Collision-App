@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using ProjectDriveSafe.Models;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace ProjectDriveSafe
 {
     public class Startup
@@ -31,14 +32,15 @@ namespace ProjectDriveSafe
 
             services.AddDbContext<RDSContext>(options =>
             {
-                options.UseMySql(GetRDSConnectionString());
+                options.UseMySql(Configuration.GetConnectionString("CrashesDBConnection"));
             });
 
             services.AddDbContext<AppIdentityRDSContext>(options =>
-               options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]));
+               options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"])); 
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityRDSContext>();
+
 
             services.AddScoped<ICollisionRepository, EFCollisionRepository>();
 

@@ -31,6 +31,10 @@ namespace ProjectDriveSafe
             {
                 options.UseMySql(Configuration["ConnectionStrings:RDSConnection"]);
             });
+
+            services.AddRazorPages();
+
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +62,10 @@ namespace ProjectDriveSafe
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*cathcall}", "/Admin/Index");
+
             });
         }
     }

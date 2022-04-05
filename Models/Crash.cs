@@ -40,8 +40,8 @@ namespace ProjectDriveSafe.Models
         public bool OLDER_DRIVER_INVOLVED { get; set; }
         public bool NIGHT_DARK_CONDITION { get; set; }
         public bool SINGLE_VEHICLE { get; set; }
-        public bool DISTRACTED_DRIVER { get; set; }
-        public bool DROWSY_DRIVER { get; set; }
+        public bool DISTRACTED_DRIVING { get; set; }
+        public bool DROWSY_DRIVING { get; set; }
         public bool ROADWAY_DEPARTURE { get; set; }
 
     }

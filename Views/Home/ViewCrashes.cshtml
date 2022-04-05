@@ -72,7 +72,7 @@
                 <td>
                     <div class="col">
                         @* This is probably wrong *@
-                        @foreach (Severity s in ViewBag.Severity)
+                        @foreach (var s in Severities)
                         {
                             @s.CRASH_SEVERITY_DESCRIPTION
                         }

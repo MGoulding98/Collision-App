@@ -11,10 +11,10 @@ namespace ProjectDriveSafe.Controllers
 {
     public class HomeController : Controller
     {
-
-        public HomeController()
+        private RDSContext cContext { get; set; }
+        public HomeController(RDSContext x)
         {
-
+            cContext = x;
         }
 
         public IActionResult Index()
@@ -26,9 +26,11 @@ namespace ProjectDriveSafe.Controllers
         {
             int pageSize = 5;
 
-            var blah = 
+            var blah = cContext.Crashes
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize);
             
-            return View();
+            return View(blah);
         }
 
     }

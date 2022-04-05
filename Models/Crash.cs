@@ -19,7 +19,11 @@ namespace Collision_App.Models
         public string MAIN_ROAD_NAME { get; set; }
         public string CITY { get; set; }
         public string COUNTY_NAME { get; set; }
+
+        // set up foreign key relationship
         public int CRASH_SEVERITY_ID { get; set; }
+        public Severity Severity { get; set; }
+
         public bool WORK_ZONE_RELATED { get; set; }
         public bool PEDESTRIAN_INVOLVED { get; set; }
         public bool BICYCLIST_INVOLVED { get; set; }
@@ -39,9 +43,6 @@ namespace Collision_App.Models
         public bool DISTRACTED_DRIVER { get; set; }
         public bool DROWSY_DRIVER { get; set; }
         public bool ROADWAY_DEPARTURE { get; set; }
-
-        // set up foreign key relationship
-        public Severity Severity { get; set; }
 
     }
 }

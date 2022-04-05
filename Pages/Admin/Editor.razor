@@ -1,6 +1,6 @@
 ﻿@page "/admin/books/edit/{id:long}"
 @page "/admin/books/create"
-@inherits OwningComponentBase<iBookStoreRepository>
+@inherits OwningComponentBase<ICollisionRepository>
 
 <style>
     div.validation.message {
@@ -68,50 +68,10 @@
     <div class="form-group">
         <label>Work Zone Related:</label>
         <ValidationMessage For="@(() => c.WORK_ZONE_RELATED)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.WORK_ZONE_RELATED"></InputNumber>
+        <InputRadioGroup Name="WorkZoneSelect" @bind-Value="c.WORK_ZONE_RELATED">
+            <InputRadio Value="c.CRASH_SEVERITY_ID">True</InputRadio>
+        </InputRadioGroup>
     </div>
-    <div class="form-group">
-        <label>Pedestrian Involved:</label>
-        <ValidationMessage For="@(() => c.PEDESTRIAN_INVOLVED)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.PEDESTRIAN_INVOLVED"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>Bicyclist Involved:</label>
-        <ValidationMessage For="@(() => c.BICYCLIST_INVOLVED)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.BICYCLIST_INVOLVED"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>Motorcycle Involved:</label>
-        <ValidationMessage For="@(() => c.MOTORCYCLE_INVOLVED)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.MOTORCYCLE_INVOLVED"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>Improper Restraint:</label>
-        <ValidationMessage For="@(() => c.IMPROPER_RESTRAINT)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.IMPROPER_RESTRAINT"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>Unrestrained:</label>
-        <ValidationMessage For="@(() => c.UNRESTRAINED)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.UNRESTRAINED"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>County:</label>
-        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>County:</label>
-        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
-    </div>
-    <div class="form-group">
-        <label>County:</label>
-        <ValidationMessage For="@(() => c.COUNTY_NAME)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="c.COUNTY_NAME"></InputNumber>
-    </div>
-    <button type="submit" class="btn btn-@ThemeColor">Save</button>
-    <NavLink class="btn btn-secondary" href="/admin/books/">Cancel</NavLink>
 
 
 </EditForm>

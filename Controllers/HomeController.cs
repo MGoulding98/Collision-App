@@ -30,8 +30,8 @@ namespace ProjectDriveSafe.Controllers
 
             var x = new CrashesViewModel
             {
-                Crashes =
-                repo.Crashes
+                Crashes = repo.Crashes
+                .OrderBy(c => c.MAIN_ROAD_NAME)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 

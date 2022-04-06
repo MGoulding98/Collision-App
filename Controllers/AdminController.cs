@@ -25,7 +25,7 @@ namespace ProjectDriveSafe.Controllers
         [Authorize]
         public IActionResult AdminView(string county, int pageNum = 1)
         {
-            int pageSize = 500;
+            int pageSize = 50;
 
             var x = new CrashesViewModel
             {

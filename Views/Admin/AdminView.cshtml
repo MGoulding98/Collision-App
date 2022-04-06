@@ -13,14 +13,8 @@
     @*row 1 - Title of Site *@
     <div class=row>
 
-        <div class="col-lg-12 col-xs-6 border border-width:8px border-dark">
+        <dv class="col-lg-12 col-xs-6 border border-width:8px border-dark">
             <h1 style="text-align:center">DriveSafe Data</h1>
-        </div>
-        <thead>
-            <td>
-                <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="CrashForm">Create</a>
-            </td>
-        </thead>
     </div>
 
     @*row 2 - DateTime / Road / City / Severity *@
@@ -83,7 +77,7 @@
                         </div>
                     </td>
                     <td>
-                        <a class="btn btn-info btn-sml" asp-controller="Admin" asp-action="EditCrash" asp-route-crashid="@x.CRASH_ID">Edit</a>
+                        <a class="btn btn-info btn-sm" asp-controller="Admin" asp-action="EditCrash" asp-route-crashid="@x.CRASH_ID"> Edit </a>
                     </td>
                     <td>
                         <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="DeleteCrash" asp-route-crashid="@x.CRASH_ID">Delete</a>
@@ -93,8 +87,9 @@
             }
         </tbody>
     </table>
+    <a class="float-right btn btn-success btn-md" asp-controller="Admin" asp-action="CrashForm">Create</a>
+    <div page-blah="@Model.PageInfo" page-action="AdminView" page-class="btn"
+         page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
+         class="btn-group pull-right m-1"></div>
 </div>
 
-<div page-blah="@Model.PageInfo" page-action="AdminView" page-class="btn"
-        page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
-        class="btn-group pull-right m-1"></div>

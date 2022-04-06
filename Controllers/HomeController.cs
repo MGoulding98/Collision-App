@@ -30,7 +30,7 @@ namespace ProjectDriveSafe.Controllers
 
         public IActionResult ViewCrashes(int pageNum = 1)
         {
-            int pageSize = 500;
+            int pageSize = 50;
 
             var x = new CrashesViewModel
             {

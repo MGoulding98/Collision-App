@@ -47,16 +47,6 @@
 
 </table>
 
-<div>
-    <ul class="pagination">
-        @for (var i = 1; i <= Model.TotalPages; i++)
-        {
-            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="/pagination" asp-route-currentpage="@i" class="page-link">@i</a>
-            </li>
-        }
-    </ul>
-</div>
 
 <NavLink class="btn btn-primary" href="/admin/collisions/create">Create</NavLink>
 

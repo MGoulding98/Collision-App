@@ -19,10 +19,6 @@ namespace ProjectDriveSafe.Controllers
             signInManager = sim;
         }
 
-        public IActionResult AdminView()
-        {
-            return View();
-        }
 
         [HttpGet]
         public IActionResult Login(string returnUrl)

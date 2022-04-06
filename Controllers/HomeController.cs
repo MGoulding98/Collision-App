@@ -24,11 +24,6 @@ namespace ProjectDriveSafe.Controllers
             return View();
         }
 
-        public IActionResult admin()
-        {
-            return View();
-        }
-
         public IActionResult ViewCrashes(int pageNum = 1)
         {
             int pageSize = 500;

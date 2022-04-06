@@ -19,6 +19,11 @@ namespace ProjectDriveSafe.Controllers
             signInManager = sim;
         }
 
+        public IActionResult AdminView()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
@@ -38,7 +43,7 @@ namespace ProjectDriveSafe.Controllers
 
                     if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin");
+                        return Redirect(loginModel?.ReturnUrl ?? "/ViewCrashes");
                     }
                 }
             }

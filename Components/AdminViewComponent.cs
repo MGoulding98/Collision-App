@@ -17,14 +17,14 @@ namespace ProjectDriveSafe.Components
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedTeam = RouteData?.Values["county"];
+            ViewBag.SelectedCounty = RouteData?.Values["county"];
 
-            var Counties = repo.Crashes
+            var counties = repo.Crashes
                 .Select(x => x.COUNTY_NAME)
                 .Distinct()
                 .OrderBy(x => x);
 
-            return View(Counties);
+            return View(counties);
         }
     }
 }

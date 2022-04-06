@@ -13,11 +13,11 @@ namespace ProjectDriveSafe.Models
             context = temp;
         }
 
-        public IQueryable<Crash> Crashes => context.Crashes;
+        public IQueryable<Crash> Crashes => context.crashes;
 
         public Crash GetCrash(int crashid)
         {
-            var crash = context.Crashes.Single(x => x.CRASH_ID == crashid);
+            var crash = context.crashes.Single(x => x.CRASH_ID == crashid);
             return crash;
         }
 

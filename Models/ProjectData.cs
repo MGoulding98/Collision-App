@@ -16,16 +16,17 @@ namespace ProjectDriveSafe.Models
         public float distracted_driving { get; set; }
         public float drowsy_driving { get; set; }
         public float roadway_departure { get; set; }
-        //public float crash_severity_id { get; set; }
+        public float crash_severity_id { get; set; }
 
         public Tensor<float> AsTensor()
         {
             float[] data = new float[]
             {
             pedestrian_involved, bicyclist_involved, motorcycle_involved, unrestrained, dui, overturn_rollover,
-            commercial_motor_veh_involved, older_driver_involved, distracted_driving, drowsy_driving, roadway_departure
+            commercial_motor_veh_involved, older_driver_involved, distracted_driving, drowsy_driving, roadway_departure,
+            crash_severity_id
             };
-            int[] dimensions = new int[] { 1, 11 };
+            int[] dimensions = new int[] { 1, 12 };
             return new DenseTensor<float>(data, dimensions);
         }
     }

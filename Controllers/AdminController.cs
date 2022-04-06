@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProjectDriveSafe.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using ProjectDriveSafe.Models.ViewModels;
 
 namespace ProjectDriveSafe.Controllers
 {
@@ -20,11 +22,30 @@ namespace ProjectDriveSafe.Controllers
             _repo = temp;
         }
 
-        public IActionResult Index(string county)
+        [Authorize]
+        public IActionResult AdminView(string county, int pageNum = 1)
         {
-            IQueryable<Crash> blah = _repo.Crashes.Where(x => x.COUNTY_NAME == county || county == null);
+            int pageSize = 500;
 
-            return View(blah);
+            var x = new CrashesViewModel
+            {
+                Crashes = _repo.Crashes
+                .Where(x => x.COUNTY_NAME == county || county == null)
+                .OrderBy(c => c.CRASH_ID)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = _repo.Crashes.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            //IQueryable<Crash> blah = _repo.Crashes.Where(x => x.COUNTY_NAME == county || county == null);
+
+            return View(x);
         }
 
         [HttpGet]

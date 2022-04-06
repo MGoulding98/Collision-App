@@ -9,6 +9,7 @@ namespace ProjectDriveSafe.Models
         IQueryable<Crash> Crashes { get; }
 
         public void SaveCollision(Crash c);
+        public void EditCollision(Crash c);
         public void CreateCollision(Crash c);
         public void DeleteCollision(Crash c);
     }

@@ -78,7 +78,7 @@ namespace ProjectDriveSafe
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=EnterData}/{id?}");
+                    pattern: "{controller=Inference}/{action=EnterData}/{id?}");
 
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/Admin", "/Admin/AdminView");

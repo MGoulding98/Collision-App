@@ -16,36 +16,47 @@
         {
             // List crashes
             @foreach (Crash c in CrashData)
-                {
-                    <tr>
-                        <td>@c.CRASH_ID</td>
-                        <td>@c.CRASH_DATETIME</td>
-                        <td>@c.CITY</td>
+            {
+                <tr>
+                    <td>@c.CRASH_ID</td>
+                    <td>@c.CRASH_DATETIME</td>
+                    <td>@c.CITY</td>
 
-                        <td>
-                            <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(c.CRASH_ID)">Details</NavLink>
-                        </td>
+                    <td>
+                        <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(c.CRASH_ID)">Details</NavLink>
+                    </td>
 
-                        <td>
-                            <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(c.CRASH_ID)">Edit</NavLink>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btnn-sm" @onclick="@(x => DeleteCollision(c))">Delete</button>
-                        </td>
+                    <td>
+                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(c.CRASH_ID)">Edit</NavLink>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btnn-sm" @onclick="@(x => DeleteCollision(c))">Delete</button>
+                    </td>
 
-                    </tr>
-                }
+                </tr>
+            }
 
         }
         else
-            {
-                <tr>
-                    <td colspan="5" class="text-center">No Collisions</td>
-                </tr>
-            }
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Collisions</td>
+            </tr>
+        }
     </tbody>
 
 </table>
+
+<div>
+    <ul class="pagination">
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a asp-page="/pagination" asp-route-currentpage="@i" class="page-link">@i</a>
+            </li>
+        }
+    </ul>
+</div>
 
 <NavLink class="btn btn-primary" href="/admin/collisions/create">Create</NavLink>
 
@@ -69,9 +80,11 @@
     public string GetDetailsUrl(long id) => $"admin/collisions/details/{id}";
     public string GetEditUrl(long id) => $"admin/collisions/edit{id}";
 
-    public async Task DeleteCollision (Crash c)
+    public async Task DeleteCollision(Crash c)
     {
         repo.DeleteCollision(c);
         await UpdateData();
     }
+
+
 }

@@ -21,6 +21,12 @@ namespace ProjectDriveSafe.Models
             return crash;
         }
 
+        public void EditCollision(Crash c)
+        {
+            context.Update(c);
+            context.SaveChanges();
+        }
+
         public void SaveCollision(Crash c)
         {
             context.SaveChanges();

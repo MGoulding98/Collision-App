@@ -77,7 +77,7 @@ namespace ProjectDriveSafe
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapFallbackToPage("/Admin", "/Admin/AdminView");
 
             });
 

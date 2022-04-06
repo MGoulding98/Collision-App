@@ -17,6 +17,7 @@
             <h1 style="text-align:center">DriveSafe Data</h1>
         </div>
 
+
     </div>
 
     @*row 2 - DateTime / Road / City / Severity *@
@@ -82,7 +83,7 @@
                         <a class="btn btn-info btn-sml" asp-controller="Admin" asp-action="EditCrash" asp-route-crashid="@x.CRASH_ID">Edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="DeleteCrash" asp-route-bowlerid="@x.CRASH_ID">Delete</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="DeleteCrash" asp-route-crashid="@x.CRASH_ID">Delete</a>
                     </td>
                 </tr>
 

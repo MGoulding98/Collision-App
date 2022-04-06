@@ -23,6 +23,10 @@ namespace ProjectDriveSafe.Controllers
         {
             return View();
         }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
         public IActionResult ViewCrashes(int pageNum = 1)
         {

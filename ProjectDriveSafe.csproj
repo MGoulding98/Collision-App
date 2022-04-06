@@ -28,5 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\lib\img\" />
+    <Folder Include="Views\Inference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Inference\" />
   </ItemGroup>
 </Project>

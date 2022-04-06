@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjectDriveSafe.Models;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.ML.OnnxRuntime;
 
 namespace ProjectDriveSafe
 {
@@ -47,6 +47,10 @@ namespace ProjectDriveSafe
             services.AddRazorPages();
 
             services.AddServerSideBlazor();
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("insurance_charges_model.onnx")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,7 +78,7 @@ namespace ProjectDriveSafe
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=EnterData}/{id?}");
 
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/Admin", "/Admin/AdminView");

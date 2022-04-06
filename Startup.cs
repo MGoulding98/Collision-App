@@ -32,7 +32,7 @@ namespace ProjectDriveSafe
 
             services.AddDbContext<RDSContext>(options =>
             {
-                options.UseMySql(Configuration.GetConnectionString("CrashesDBConnection"));
+                options.UseMySql(Configuration["ConnectionStrings:CrashesDBConnection"]);
             });
 
             services.AddDbContext<AppIdentityRDSContext>(options =>

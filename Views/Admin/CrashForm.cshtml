@@ -46,17 +46,17 @@
     <div class="col-md-10">
         <label asp-for="WORK_ZONE_RELATED">Work Zone Related:</label><br />
         True
-        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, 1)
+        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, true)
         False
-        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, 0)
+        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, false)
     </div>
 
     <div class="col-md-10">
         <label asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved:</label><br />
         True
-        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, 1)
+        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, true)
         False
-        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, 0)
+        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, false)
     </div>
 
     <div class="col-md-10">

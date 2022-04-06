@@ -31,7 +31,7 @@ namespace ProjectDriveSafe.Controllers
         public IActionResult CrashForm()
         {
             ViewBag.Crashes = _repo.Crashes.ToList();
-            // have to pass in a new bowler so the object that is passed into the form has an id 
+
             return View(new Crash());
         }
 
@@ -51,7 +51,7 @@ namespace ProjectDriveSafe.Controllers
             }
         }
 
-        // Edit Bowler
+        // Edit Crash
 
         [HttpGet]
         public IActionResult EditCrash(int crashid)
@@ -71,7 +71,7 @@ namespace ProjectDriveSafe.Controllers
         }
 
 
-        // Delete Bowler
+        // Delete Crash
         [HttpGet]
         public IActionResult DeleteCrash(int crashid)
         {

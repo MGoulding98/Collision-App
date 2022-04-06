@@ -3,7 +3,7 @@
 
 @model Crash
 
-<h2>Enter the Information for the Collision:</h2>
+<h2>Enter Information for the Collision:</h2>
 <form method="post">
     <div asp-validation-summary="All"></div>
     <input type="hidden" asp-for="CRASH_ID" />
@@ -33,7 +33,7 @@
     <input type="text" asp-for="COUNTY_NAME" /><br /><br />
 
     <select class="form-select" asp-for="CRASH_SEVERITY_ID">
-        <option value="">Select a Crash Severity</option>
+        <option value="">Select Crash Severity</option>
         <option value="1">No Injury</option>
         <option value="2">Possible Injury</option>
         <option value="3">Suspected Minor Injury</option>
@@ -41,6 +41,158 @@
         <option value="5">Fatal</option>
     </select>
     <br /><br />
+
+    <div class="col-md-10">
+        <label asp-for="WORK_ZONE_RELATED">Work Zone Related:</label>
+        True
+        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, 1)
+        False
+        @Html.RadioButtonFor(model => model.WORK_ZONE_RELATED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.PEDESTRIAN_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="BICYCLIST_INVOLVED">Bicyclist Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.BICYCLIST_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.BICYCLIST_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="MOTORCYCLE_INVOLVED">Motorcycle Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.MOTORCYCLE_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.MOTORCYCLE_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="IMPROPER_RESTRAINT">Improper Restraint:</label>
+        True
+        @Html.RadioButtonFor(model => model.IMPROPER_RESTRAINT, 1)
+        False
+        @Html.RadioButtonFor(model => model.IMPROPER_RESTRAINT, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="UNRESTRAINED">Unrestrained:</label>
+        True
+        @Html.RadioButtonFor(model => model.UNRESTRAINED, 1)
+        False
+        @Html.RadioButtonFor(model => model.UNRESTRAINED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="DUI">DUI:</label>
+        True
+        @Html.RadioButtonFor(model => model.DUI, 1)
+        False
+        @Html.RadioButtonFor(model => model.DUI, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="INTERSECTION_RELATED">Intersection Related:</label>
+        True
+        @Html.RadioButtonFor(model => model.INTERSECTION_RELATED, 1)
+        False
+        @Html.RadioButtonFor(model => model.INTERSECTION_RELATED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="WILD_ANIMAL_RELATED">Wild Animal Related:</label>
+        True
+        @Html.RadioButtonFor(model => model.WILD_ANIMAL_RELATED, 1)
+        False
+        @Html.RadioButtonFor(model => model.WILD_ANIMAL_RELATED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="DOMESTIC_ANIMAL_RELATED">Domestic Animal Related:</label>
+        True
+        @Html.RadioButtonFor(model => model.DOMESTIC_ANIMAL_RELATED, 1)
+        False
+        @Html.RadioButtonFor(model => model.DOMESTIC_ANIMAL_RELATED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="OVERTURN_ROLLOVER">Overturn Rollover:</label>
+        True
+        @Html.RadioButtonFor(model => model.OVERTURN_ROLLOVER, 1)
+        False
+        @Html.RadioButtonFor(model => model.OVERTURN_ROLLOVER, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">Commerical Motor Vehical Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.COMMERCIAL_MOTOR_VEH_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.COMMERCIAL_MOTOR_VEH_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="TEENAGE_DRIVER_INVOLVED">Teenage Driver Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.TEENAGE_DRIVER_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.TEENAGE_DRIVER_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="OLDER_DRIVER_INVOLVED">Older Driver Involved:</label>
+        True
+        @Html.RadioButtonFor(model => model.OLDER_DRIVER_INVOLVED, 1)
+        False
+        @Html.RadioButtonFor(model => model.OLDER_DRIVER_INVOLVED, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="NIGHT_DARK_CONDITION">Night/Dark Condition:</label>
+        True
+        @Html.RadioButtonFor(model => model.NIGHT_DARK_CONDITION, 1)
+        False
+        @Html.RadioButtonFor(model => model.NIGHT_DARK_CONDITION, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="SINGLE_VEHICLE">Single Vehicle:</label>
+        True
+        @Html.RadioButtonFor(model => model.SINGLE_VEHICLE, 1)
+        False
+        @Html.RadioButtonFor(model => model.SINGLE_VEHICLE, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="DISTRACTED_DRIVING">Distracted Driving:</label>
+        True
+        @Html.RadioButtonFor(model => model.DISTRACTED_DRIVING, 1)
+        False
+        @Html.RadioButtonFor(model => model.DISTRACTED_DRIVING, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="DROWSY_DRIVING">Drowsy Driving:</label>
+        True
+        @Html.RadioButtonFor(model => model.DROWSY_DRIVING, 1)
+        False
+        @Html.RadioButtonFor(model => model.DROWSY_DRIVING, 0)
+    </div>
+
+    <div class="col-md-10">
+        <label asp-for="ROADWAY_DEPARTURE">Roadway Departure:</label>
+        True
+        @Html.RadioButtonFor(model => model.ROADWAY_DEPARTURE, 1)
+        False
+        @Html.RadioButtonFor(model => model.ROADWAY_DEPARTURE, 0)
+    </div>
 
     <button class="btn btn-sm btn-info" type="submit">Save</button>
 </form>

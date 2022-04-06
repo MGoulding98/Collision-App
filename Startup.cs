@@ -49,7 +49,7 @@ namespace ProjectDriveSafe
             services.AddServerSideBlazor();
 
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("insurance_charges_model.onnx")
+                new InferenceSession("best_model.onnx")
             );
         }
 

@@ -4,6 +4,10 @@
 
 @model CrashesViewModel
 
+<div id="types" class="col-3">
+    <vc:counties></vc:counties>
+</div>
+
 <div class="container">
 
     @*row 1 - Title of Site *@
@@ -52,35 +56,35 @@
 
             @foreach (Crash x in Model.Crashes)
             {
-            <tr>
-                <td>
-                    <div class="col">
-                        @x.CRASH_DATETIME
-                    </div>
-                </td>
+                <tr>
+                    <td>
+                        <div class="col">
+                            @x.CRASH_DATETIME
+                        </div>
+                    </td>
 
-                <td>
-                    <div class="col">
-                        @x.MAIN_ROAD_NAME
-                    </div>
-                </td>
-                <td>
-                    <div class="col">
-                        @x.CITY
-                    </div>
-                </td>
-                <td>
-                    <div class="col">
-                        @x.CRASH_SEVERITY_ID
-                    </div>
-                </td>
-                <td>
-                    <a class="btn btn-info btn-sml" asp-controller="Admin" asp-action="EditCrash" asp-route-crashid="@x.CRASH_ID">Edit</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="DeleteCrash" asp-route-bowlerid="@x.CRASH_ID">Delete</a>
-                </td>
-            </tr>
+                    <td>
+                        <div class="col">
+                            @x.MAIN_ROAD_NAME
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col">
+                            @x.CITY
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col">
+                            @x.CRASH_SEVERITY_ID
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-sml" asp-controller="Admin" asp-action="EditCrash" asp-route-crashid="@x.CRASH_ID">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="DeleteCrash" asp-route-bowlerid="@x.CRASH_ID">Delete</a>
+                    </td>
+                </tr>
 
             }
         </tbody>
@@ -88,5 +92,5 @@
 </div>
 
 <div page-blah="@Model.PageInfo" page-action="ViewCrashes" page-class="btn"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
-     class="btn-group pull-right m-1"></div>
+        page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
+        class="btn-group pull-right m-1"></div>

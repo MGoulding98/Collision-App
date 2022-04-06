@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - ProjectDriveSafe</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header>
@@ -35,7 +36,7 @@
     <div class="row m-1 p-1">
 
         @*pulls in the body from the other views*@
-        <div class="col">
+        <div class="col" style="background-image: url('file:///C:\Users\Owner\Downloads\pexels-arminas-raudys-904177.jpg')">
             <div>
                 @RenderBody()
             </div>
